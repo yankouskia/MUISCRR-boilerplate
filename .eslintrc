@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "settings": {
+    "import/extensions": [".js"]
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "function-paren-newline": "off",
+    "guard-for-in": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "max-len": ["error", 150],
+    "no-console": "off",
+    "no-plusplus": "off",
+    "no-use-before-define": "off",
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "no-continue": "off",
+    "no-constant-condition": "off",
+    "no-mixed-operators": "off",
+    "no-restricted-properties": "off",
+    "no-underscore-dangle": "off",
+    "react/no-array-index-key": "off",
+    "consistent-return": "off",
+    "no-bitwise": "off",
+    "no-loop-func": "off",
+    "no-shadow": "off",
+    "no-unused-expressions": "off",
+    "prefer-rest-params": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/sort-comp": "off"
+  }
+}

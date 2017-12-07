@@ -1,0 +1,92 @@
+{
+  "name": "muiscrr-boilerplate",
+  "version": "0.0.1",
+  "description": "MUISCRR boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "PRODUCTION CONFIGURATION": "//",
+    "start": "npm run clean && npm run build && npm run serve",
+    "build": "npm run build:vendor && npm run build:app",
+    "build:app": "cross-env NODE_ENV=production webpack --config webpack.config.js --progress",
+    "build:vendor": "cross-env NODE_ENV=production webpack --config vendor.webpack.config.js --progress",
+    "serve": "cross-env NODE_ENV=production pm2 start server.js",
+    "DEVELOPMENT CONFIGURATION": "//",
+    "dev": "npm run clean && concurrently --kill-others \"npm run build:dev\" \"npm run serve:dev\"",
+    "build:dev": "npm run build:vendor:dev && npm run build:app:dev",
+    "build:app:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --progress --watch",
+    "build:vendor:dev": "cross-env NODE_ENV=development webpack --config vendor.webpack.config.js --progress",
+    "serve:dev": "cross-env NODE_ENV=development nodemon --watch server.js --exec node server.js",
+    "TOOLS & CONFIGURATIONS": "//",
+    "clean": "rimraf dist/",
+    "precommit": "lint-staged",
+    "lint": "eslint .",
+    "lintfix": "eslint . --fix",
+    "prettier": "prettier --bracket-spacing --list-different --single-quote --trailing-comma all --write \"src/**/*.js\""
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run prettier",
+      "npm run lint"
+    ]
+  },
+  "engines": {
+    "node": ">=8.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yankouskia/MUISCRR-boilerplate.git"
+  },
+  "author": "yankouskia aleksandr.yankovskiy@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yankouskia/MUISCRR-boilerplate/issues"
+  },
+  "homepage": "https://github.com/yankouskia/MUISCRR-boilerplate#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "express": "^4.16.2",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.4",
+    "material-ui": "^1.0.0-beta.22",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "morgan": "^1.9.0",
+    "offline-plugin": "^4.8.5",
+    "pm2": "^2.8.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-tap-event-plugin": "^3.0.2",
+    "redux": "^3.7.2",
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
+    "styled-components": "^2.2.4",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.1",
+    "cypress": "^1.1.4",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
+    "exports-loader": "^0.6.4",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.1",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-notifier": "^1.5.0"
+  }
+}
