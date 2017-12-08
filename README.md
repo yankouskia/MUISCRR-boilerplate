@@ -1,5 +1,5 @@
 # MUISCRR-boilerplate
-Material-UI Styled Components React Redux boilerplate
+Material-UI Styled Components React Redux boilerplate with __offline__ mode support
 
 ## Environment
 
@@ -49,3 +49,4 @@ Also there is used `husky` for enabling to run `lint`, `prettier` on `precommit`
 - [husky](https://github.com/typicode/husky)
 - [styled-components](https://www.styled-components.com/)
 - [pm2](http://pm2.keymetrics.io/)
+- [offline-plugin](https://github.com/NekR/offline-plugin)
