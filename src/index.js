@@ -1,15 +1,15 @@
 import 'babel-polyfill';
-
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import App from './components/App';
+import Main from './pages/Main';
+import Feedback from './pages/Feedback';
 import configureStore from './store/configure';
 import materialUiTheme from './theme/config';
 
@@ -24,7 +24,10 @@ ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={materialUiTheme}>
       <Router>
-        <Route component={App} />
+        <Switch>
+          <Route path="/" exact component={Main} />
+          <Route path="/feedback" component={Feedback} />
+        </Switch>
       </Router>
     </MuiThemeProvider>
   </Provider>,

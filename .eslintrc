@@ -32,6 +32,7 @@
     "no-restricted-properties": "off",
     "no-underscore-dangle": "off",
     "react/no-array-index-key": "off",
+    "react/prefer-stateless-function": "off",
     "consistent-return": "off",
     "no-bitwise": "off",
     "no-loop-func": "off",
