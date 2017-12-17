@@ -13,23 +13,24 @@ const Container = styled(List)`
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    min-height: 5vh;
     flex: 0;
     padding: 0;
     overflow: hidden;
-    max-height: 50px;
+    min-height: 60px;
+    height: 60px;
   }
 `;
 
 const ListContainer = styled(List)`
   && {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row;
     padding: 0;
     overflow: hidden;
     flex-grow: 0;
-    max-height: 50px;
+    height: 60px;
+    padding-bottom: 15px;
   }
 `;
 

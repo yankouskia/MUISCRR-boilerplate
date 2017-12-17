@@ -26,5 +26,10 @@ export default createMuiTheme({
         marginRight: '0 !important',
       },
     },
+    MuiInputLabel: {
+      formControl: {
+        left: 'auto',
+      },
+    },
   },
 });

@@ -62,7 +62,7 @@ const webpackConfig = {
       caches: {
         main: ['app.js', 'index.html', 'favicon.ico', ':externals:'],
       },
-      externals: ['vendor.js'],
+      externals: ['vendor.js', '../statics/background.jpg'],
       responseStrategy: 'network-first',
       updateStrategy: 'changed',
     }),

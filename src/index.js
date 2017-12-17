@@ -10,6 +10,8 @@ import { MuiThemeProvider } from 'material-ui/styles';
 
 import Main from './pages/Main';
 import Feedback from './pages/Feedback';
+import HiddenFeatures from './pages/HiddenFeatures';
+
 import configureStore from './store/configure';
 import materialUiTheme from './theme/config';
 
@@ -20,14 +22,21 @@ injectTapEventPlugin();
 
 const store = configureStore();
 
+const Routes = () => (
+  <div>
+    <Route component={HiddenFeatures} />
+    <Switch>
+      <Route path="/" exact component={Main} />
+      <Route path="/feedback" component={Feedback} />
+    </Switch>
+  </div>
+);
+
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={materialUiTheme}>
       <Router>
-        <Switch>
-          <Route path="/" exact component={Main} />
-          <Route path="/feedback" component={Feedback} />
-        </Switch>
+        <Routes />
       </Router>
     </MuiThemeProvider>
   </Provider>,

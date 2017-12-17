@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { Container as ContentContainer } from './Content';
-import background from '../statics/background.jpg';
 
 const Container = styled.div`
   display: flex;
@@ -11,11 +10,12 @@ const Container = styled.div`
   min-height: 100vh;
   overflow: hidden;
   height: 100vh;
-  background: url(${background}) no-repeat center center;
+  background: url('/statics/background.jpg') no-repeat center center;
   background-size: cover;
 
   & ${ContentContainer} {
     flex-grow: 1;
+    height: calc(100% - 60px);
   }
 `;
 

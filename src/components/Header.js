@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
+import MaterialToolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
@@ -19,7 +21,34 @@ const Title = styled(Typography)`
   }
 `;
 
-export default class Header extends React.PureComponent {
+const MeetText = styled(Typography)`
+  && {
+    text-align: right;
+  }
+`;
+
+const Toolbar = styled(MaterialToolbar)`
+  && {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+const LineBlock = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+class Header extends React.PureComponent {
+  static propTypes = {
+    username: PropTypes.string,
+  };
+
+  static defaultProps = {
+    username: '',
+  };
+
   state = { isPanelOpened: false };
 
   togglePanel = () => {
@@ -27,19 +56,24 @@ export default class Header extends React.PureComponent {
   };
 
   render() {
+    const { username } = this.props;
+    const meetText = username ? `Hello, ${username}!` : 'Hello!';
     return (
       <Container position="static" color="primary">
         <Toolbar>
-          <IconButton
-            onClick={this.togglePanel}
-            color="contrast"
-            aria-label="Menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Title type="title" color="inherit">
-            Application
-          </Title>
+          <LineBlock>
+            <IconButton
+              onClick={this.togglePanel}
+              color="contrast"
+              aria-label="Menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Title type="title">Application</Title>
+          </LineBlock>
+          <LineBlock>
+            <MeetText>{meetText}</MeetText>
+          </LineBlock>
         </Toolbar>
         <NavigationPanel
           isOpened={this.state.isPanelOpened}
@@ -49,3 +83,9 @@ export default class Header extends React.PureComponent {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  username: state.get('user').get('name'),
+});
+
+export default connect(mapStateToProps)(Header);

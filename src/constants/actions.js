@@ -1,4 +1,4 @@
-const actions = ['LOAD_INITIAL_DATA'];
+const actions = ['SAVE_USER_NAME', 'INITIAL_LOADING', 'SEND_FEEDBACK'];
 
 module.exports = actions.reduce((acc, action) => {
   const successAction = `${action}_SUCCESS`;
