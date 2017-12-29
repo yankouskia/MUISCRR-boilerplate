@@ -1,6 +1,6 @@
 # MUISCRR-boilerplate
 
-Material-UI Styled Components React Redux boilerplate with __offline__ mode support can be used for creating single-page applications with mentioned tchnologies stack. Mobile and desktop versions are supported.
+Material-UI Styled Components React Redux boilerplate with __offline__ mode support can be used for creating single-page applications with mentioned technologies stack. Mobile and desktop versions are supported.
 
 # Demo
 
